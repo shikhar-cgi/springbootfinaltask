@@ -50,18 +50,6 @@ public class UserController {
         return responseEntity;
     }
 
-    @PutMapping("/update")
-    @ApiOperation(value = "To update the track")
-    public ResponseEntity<?> updateUser(@RequestBody User user) {
-
-        try {
-            userService.upadate(user);
-            responseEntity = new ResponseEntity<String>("sucessfully updated", HttpStatus.OK);
-        } catch (Exception ex) {
-            responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
-        }
-        return responseEntity;
-    }
 
     @ApiOperation(value = "To delete the track")
     @DeleteMapping("/delete/{userId}")
@@ -76,18 +64,5 @@ public class UserController {
         return responseEntity;
     }
 
-    @ApiOperation(value = "To find the track by name")
-    @GetMapping("/find/{name}")
-    public ResponseEntity<?> findUserByTrackName(@PathVariable String name) {
 
-        try {
-            responseEntity = new ResponseEntity<List<User>>(userService.findUserByTrackName(name), HttpStatus.OK);
-
-        } catch (UserNotFound ex) {
-            responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
-
-            return responseEntity;
-        }
-        return responseEntity;
-    }
 }

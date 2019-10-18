@@ -28,7 +28,6 @@ public class ApllicationListener implements ApplicationListener<ContextRefreshed
 
         User track=new User();
 
-
         track.setTrackComment(env.getProperty("track.trackComment"));
         track.setTrackName(env.getProperty("track.trackName"));
 

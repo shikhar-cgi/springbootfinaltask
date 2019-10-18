@@ -48,21 +48,5 @@ public class TrackDummyServiceImpl implements UserService {
 
     }
 
-    @Override
-    public User upadate(User user) throws UserAlreadyExist {
-        User updateUser=userRepository.getOne(user.getTrackid());
-        updateUser.setTrackComment(user.getTrackComment());
-        userRepository.save(updateUser);
-        return updateUser;
-    }
 
-    @Override
-    public List<User> findUserByTrackName(String name) throws UserNotFound {
-        List<User> one=userRepository.findUserByTrackName(name);
-        if(one.size()==0)
-        {
-            throw new UserNotFound("User not found");
-        }
-        return one;
-    }
 }
